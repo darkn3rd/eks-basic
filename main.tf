@@ -22,12 +22,12 @@ module "vpc" {
 
   public_subnet_tags = {
     "kubernetes.io/cluster/${var.eks_cluster_name}" = "shared"
-    "kubernetes.io/role/elb"                      = "1"
+    "kubernetes.io/role/elb"                        = "1"
   }
 
   private_subnet_tags = {
     "kubernetes.io/cluster/${var.eks_cluster_name}" = "shared"
-    "kubernetes.io/role/internal-elb"             = "1"
+    "kubernetes.io/role/internal-elb"               = "1"
   }
 }
 
@@ -40,9 +40,9 @@ module "eks" {
 
   worker_groups = [
     {
-      name                          = "worker-group-1"
-      instance_type                 = "m5-large"
-      asg_desired_capacity          = 2
+      name                 = "worker-group-1"
+      instance_type        = "m5-large"
+      asg_desired_capacity = 2
     }
   ]
 }
