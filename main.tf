@@ -1,5 +1,8 @@
 variable "eks_cluster_name" {}
 variable "region" {}
+variable "instanct_type" {
+  default = "m5.large"
+}
 
 data "aws_availability_zones" "available" {}
 
@@ -41,7 +44,7 @@ module "eks" {
   worker_groups = [
     {
       name                 = "worker-group-1"
-      instance_type        = "m5-large"
+      instance_type        = var.instance_type
       asg_desired_capacity = 2
     }
   ]
