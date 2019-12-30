@@ -1,6 +1,6 @@
 variable "eks_cluster_name" {}
 variable "region" {}
-variable "instanct_type" {
+variable "instance_type" {
   default = "m5.large"
 }
 
