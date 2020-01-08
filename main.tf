@@ -3,6 +3,9 @@ variable "region" {}
 variable "instance_type" {
   default = "m5.large"
 }
+variable "workers_additional_policies" {
+  default = []
+}
 
 data "aws_availability_zones" "available" {}
 
@@ -40,6 +43,8 @@ module "eks" {
   cluster_name = var.eks_cluster_name
   subnets      = module.vpc.private_subnets
   vpc_id       = module.vpc.vpc_id
+
+  workers_additional_policies = var.workers_additional_policies
 
   worker_groups = [
     {
