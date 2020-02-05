@@ -7,6 +7,8 @@ variable "workers_additional_policies" {
   default = []
 }
 
+variable "key_name" {}
+
 data "aws_availability_zones" "available" {}
 
 module "vpc" {
@@ -51,6 +53,7 @@ module "eks" {
       name                 = "worker-group-1"
       instance_type        = var.instance_type
       asg_desired_capacity = 2
+      key_name             = var.key_name
     }
   ]
 }
