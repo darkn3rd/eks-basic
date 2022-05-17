@@ -11,7 +11,7 @@ data "aws_availability_zones" "available" {}
 
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "2.21.0"
+  version = "3.14.0"
 
   name                 = "ekstf-vpc"
   cidr                 = "192.168.0.0/16"
@@ -39,7 +39,7 @@ module "vpc" {
 
 module "eks" {
   source       = "terraform-aws-modules/eks/aws"
-  version      = "7.0.1"
+  version      = "18.21.0"
   cluster_name = var.eks_cluster_name
   subnets      = module.vpc.private_subnets
   vpc_id       = module.vpc.vpc_id
